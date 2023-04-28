@@ -1,5 +1,5 @@
 import "./App.css";
-import { createInitialBoard, createNewState, checkGameOver } from "./game";
+import { createInitialBoard, createNewState, checkGameOver } from "./game.js";
 import Header from "./components/Header";
 import Board from "./components/Board";
 
