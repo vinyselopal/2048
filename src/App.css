@@ -1,0 +1,221 @@
+.App {
+  background-color: rgb(250, 248, 239);
+  height: '100%';
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index:1
+}
+
+.header {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px
+}
+.game-over {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+        background: rgba(238, 228, 218, 0.73);
+        z-index: 100;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: rgb(119, 110, 101);
+        font-size: 15px;
+        text-align: center;
+        height: 500px;
+        width: 500px
+}
+
+.game-over-message {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.try-again-button {
+  width: 100px;
+  height: 30px;
+  background-color: #776e65;
+  color: white;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.board {
+  margin: 2rem;
+  height: 500px;
+  width: 500px;
+  border: 5px solid rgb(145, 135, 126);
+  display: grid;
+}
+
+.board-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: '100%';
+}
+
+.board-cell {
+  color: #776e65;
+  font-size: 3rem;
+  font-weight: 700;
+    border: 5px solid rgb(145, 135, 126);
+    background-color: rgb(196, 183, 169);
+    padding: 5px;
+    width: '100%';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cell-0 {
+  color:rgb(196, 183, 169)
+}
+.cell-2 {
+  background-color:#eee4da;
+}
+
+.cell-4 {
+  background-color: #eee1c9;;
+}
+
+.cell-8 {
+  background: #f3b27a;
+      color: #f9f6f2;}
+
+.cell-16 {
+      background: #f69664;
+      color: #f9f6f2;}
+
+.cell-32 {
+      color: #f9f6f2;
+        background: #f77c5f;
+}
+
+.cell-64 {
+    color: #f9f6f2;
+      background: #f75f3b;
+}
+
+.cell-128 {
+    color: #f9f6f2;
+      background: #edd073;
+}
+
+.cell-256 {
+    color: #f9f6f2;
+      background: #edcc62;
+}
+
+.cell-1024 {
+    color: #f9f6f2;
+      background: #edc53f;
+}
+
+.cell-2048 {
+    color: #f9f6f2;
+      background: #edc22e;
+}
+
+.title-2048  h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color:rgb(105, 97, 89)
+}
+
+.current-score {
+  background-color: rgb(145, 135, 126);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 3px;
+  padding: 7px
+}
+
+.best-score {
+  background-color:rgb(145, 135, 126);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 3px;
+  padding: 7px
+}
+
+.score {
+  display: flex;
+  width: 120px;
+  justify-content: space-between;
+  font-weight: 700
+}
+
+.new-game {
+    background-color: #776e65;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 3px;
+    padding: 7px;
+    margin: 10px;
+    color: white;
+    font-weight: 700
+  }
+
+  .right-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */

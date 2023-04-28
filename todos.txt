@@ -1,0 +1,16 @@
+todo:
+create new git repo, commit changes
+create sub components
+extensible design to change size of board and goal
+change css structure to make it more readable and easier to reuse (look into original css)
+include game rules
+increase the height of the app or whichever container, so that background color is spread out
+organize folder structure and take things out of app component to make it look cleaner
+absolute imports using jsconfig
+edge cases? think more
+what happens when 2048 is reached? handle that (you won! message)
+do something about the hidden 0's
+store board state to localstorage and retrieve it on refresh
+refactor more
+style better
+create zip file and mail to Pranav
