@@ -2,15 +2,17 @@ import "./App.css";
 import { createInitialBoard, createNewState, checkGameOver } from "./game";
 import Header from "./components/Header"
 import Board from "./components/Board"
+import { getFromLocalStorage, saveToLocalStorage } from "./utils";
+
 import { useState, useEffect } from "react";
 
 function App() {
       const [gameOver, setGameOver] = useState(false);
   const [size, setSize] = useState(4);
   const [score, setScore] = useState(0);
-  const [bestScore, setBestScore] = useState(JSON.parse(localStorage.getItem('bestScore')) || 0)
+  const [bestScore, setBestScore] = useState(getFromLocalStorage('bestScore') || 0)
 
-  const [board, setBoard] = useState(createInitialBoard(size));
+  const [board, setBoard] = useState(getFromLocalStorage('board') || createInitialBoard(size));
 
   const changeBoardState = (e) => {
     const boardCopy = board.map((r) => r.map((v) => v));
@@ -48,7 +50,7 @@ function App() {
 
   useEffect(() => {
     if (score > bestScore) {
-      localStorage.setItem('bestScore', score)
+      saveToLocalStorage('bestScore', score)     
       setBestScore(score)
     }
   }, [score, bestScore])
@@ -56,6 +58,7 @@ function App() {
   useEffect(() => {
     window.addEventListener("keydown", changeBoardState);
 
+    saveToLocalStorage('board', board)
     return () => {
       window.removeEventListener("keydown", changeBoardState);
     };
