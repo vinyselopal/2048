@@ -1,9 +1,13 @@
-import GameOver from "./components/GameOver";
+import Overlay from "./components/Overlay";
 
-const Board = ({ gameOver, resetBoard, board }) => {
+const Board = ({ gameOver, resetBoard, board, goalReached }) => {
   return (
     <div className="board">
-      <GameOver gameOver={gameOver} resetBoard={resetBoard} />
+      <Overlay
+        gameOver={gameOver}
+        resetBoard={resetBoard}
+        goalReached={goalReached}
+      />
       {board.map((row, i) => (
         <div key={i} className="board-row">
           {row.map((cell, j) => (

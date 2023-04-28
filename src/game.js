@@ -22,7 +22,6 @@ const createInitialPositions = (n) => {
 const createInitialBoard = (n) => {
   const [position1, position2] = createInitialPositions(n);
 
-
   const board = [];
 
   for (let i = 0; i < n; i++) {
@@ -39,8 +38,8 @@ const createInitialBoard = (n) => {
 
 const createNewState = (action, board) => {
   const n = board.length;
-  let changed = false
-  let score = 0
+  let changed = false;
+  let score = 0;
 
   if (action === "right") {
     for (let i = 0; i < n; i++) {
@@ -52,7 +51,7 @@ const createNewState = (action, board) => {
             if (board[i][k] > 0) {
               board[i][j] = board[i][k];
               board[i][k] = 0;
-              changed = true
+              changed = true;
               break;
             }
             k--;
@@ -64,16 +63,16 @@ const createNewState = (action, board) => {
 
         while (k >= 0) {
           if (board[i][k] === 0) {
-            k--
-            continue
+            k--;
+            continue;
           }
           if (board[i][k] > 0 && board[i][k] === board[i][j]) {
             board[i][j] = 2 * board[i][j];
             board[i][k] = 0;
-            score += board[i][j]
-            changed = true
+            score += board[i][j];
+            changed = true;
           }
-          break
+          break;
         }
       }
     }
@@ -89,7 +88,7 @@ const createNewState = (action, board) => {
             if (board[i][k] > 0) {
               board[i][j] = board[i][k];
               board[i][k] = 0;
-              changed = true
+              changed = true;
               break;
             }
             k++;
@@ -102,13 +101,13 @@ const createNewState = (action, board) => {
         while (k < n) {
           if (board[i][k] === 0) {
             k++;
-            continue
+            continue;
           }
           if (board[i][k] > 0 && board[i][k] === board[i][j]) {
             board[i][j] = 2 * board[i][j];
             board[i][k] = 0;
-            score += board[i][j]
-            changed = true
+            score += board[i][j];
+            changed = true;
           }
           break;
         }
@@ -125,7 +124,7 @@ const createNewState = (action, board) => {
             if (board[k][i] > 0) {
               board[j][i] = board[k][i];
               board[k][i] = 0;
-              changed = true
+              changed = true;
               break;
             }
             k--;
@@ -138,16 +137,16 @@ const createNewState = (action, board) => {
         while (k >= 0) {
           if (board[k][i] === 0) {
             k--;
-            continue
+            continue;
           }
           if (board[k][i] > 0 && board[k][i] === board[j][i]) {
             board[j][i] = 2 * board[j][i];
             board[k][i] = 0;
-            score += board[j][i]
+            score += board[j][i];
 
-            changed = true
+            changed = true;
           }
-          break
+          break;
         }
       }
     }
@@ -162,7 +161,7 @@ const createNewState = (action, board) => {
             if (board[k][i] > 0) {
               board[j][i] = board[k][i];
               board[k][i] = 0;
-              changed = true
+              changed = true;
               break;
             }
             k++;
@@ -175,27 +174,27 @@ const createNewState = (action, board) => {
         while (k < n) {
           if (board[k][i] === 0) {
             k++;
-            continue
+            continue;
           }
-          if (board[k][i] > 0 &&  board[k][i] === board[j][i]) {
+          if (board[k][i] > 0 && board[k][i] === board[j][i]) {
             board[j][i] = 2 * board[j][i];
             board[k][i] = 0;
-            score += board[j][i]
+            score += board[j][i];
 
-            changed = true
+            changed = true;
           }
-          break
+          break;
         }
       }
     }
   }
 
   if (changed) {
-    const [row, col] = createNewPosition(board)
-    board[row][col] = selectValue()
+    const [row, col] = createNewPosition(board);
+    board[row][col] = selectValue();
   }
-  
-  console.log('new board')
+
+  console.log("new board");
   return [board, score];
 };
 
@@ -207,31 +206,27 @@ const createNewPosition = (board) => {
     position[1] = generateRandomCoord(n);
   }
 
-  return position
+  return position;
 };
 
 const checkGameOver = (board) => {
-  const n = board.length
-  
-  if (board.find(a => a.filter(a => a === 0).length)) return false
+  const n = board.length;
+
+  if (board.find((a) => a.filter((a) => a === 0).length)) return false;
 
   for (let i = 0; i < n - 1; i++) {
     for (let j = 0; j < n; j++) {
-      if (board[i][j] === board[i+1][j] || board[i][j] === board[i][j+1]) return false
+      if (board[i][j] === board[i + 1][j] || board[i][j] === board[i][j + 1])
+        return false;
     }
   }
   for (let j = 0; j < n; j++) {
-    if (board[3][j] === board[3][j + 1]) return false
+    if (board[3][j] === board[3][j + 1]) return false;
   }
 
-
-  return true
-}
+  return true;
+};
 
 const board = createInitialBoard(n);
 
-export {
-  createInitialBoard,
-  createNewState,
-  checkGameOver
-}
+export { createInitialBoard, createNewState, checkGameOver };
