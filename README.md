@@ -1,5 +1,3 @@
-#2048
-
 # 2048
 
 An attempt to clone https://play2048.co/ using React CRA, using local storage for temporarily storing score and game state.

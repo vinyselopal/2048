@@ -1,11 +1,12 @@
 import "./App.css";
 import { createInitialBoard, createNewState, checkGameOver } from "./game";
-
-import { useState, useEffect, useLayoutEffect } from "react";
+import Header from "./components/Header"
+import Board from "./components/Board"
+import { useState, useEffect } from "react";
 
 function App() {
+      const [gameOver, setGameOver] = useState(false);
   const [size, setSize] = useState(4);
-  const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(JSON.parse(localStorage.getItem('bestScore')) || 0)
 
@@ -66,46 +67,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="header">
-        <div className="title-2048">
-          <h1>2048</h1>
-        </div>
-        <div className="right-div">
-          <div className="score">
-            <div className="current-score">
-              <div>Score</div>
-              <div>{score}</div>
-            </div>
-            <div className="best-score">
-              <div>Best</div>
-              <div>{bestScore}</div>
-            </div>
-          </div>
-          <div className="new-game-container">
-            <button className="new-game"
-            onClick={resetBoard}>New Game</button>
-          </div>
-      </div>
-      </header>
-      <div className="board">
-        {gameOver ? (
-          <div className="game-over">
-            <p className="game-over-message">Game Over!</p>
-            <button className="try-again-button" onClick={resetBoard}>
-              Try again
-            </button>
-          </div>
-        ) : null}
-        {board.map((row, i) => (
-          <div key={i} className="board-row">
-            {row.map((cell, j) => (
-              <div className={`board-cell cell-${cell} `} key={j}>
-                {cell}
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+      <Header score={score} bestScore={bestScore} resetBoard={resetBoard}/>
+      <Board gameOver={gameOver} resetBoard={resetBoard} board={board} />
     </div>
   );
 }
